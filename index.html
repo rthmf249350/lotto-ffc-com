@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于分分彩 · 一段节奏的叙事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fcedda 0%, #f9d8b7 45%, #f2c791 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.7;
+    }
+
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: #fffefa;
+      border-radius: 36px;
+      padding: 2.8rem 2.4rem 3.2rem;
+      box-shadow: 0 20px 40px -10px rgba(150, 90, 30, 0.2),
+                  0 6px 14px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 24px 48px -12px rgba(140, 80, 20, 0.25);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #4d2e16;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+      border-left: 6px solid #d9995a;
+      padding-left: 1rem;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #7f5936;
+      margin-top: 0.5rem;
+      margin-bottom: 2.2rem;
+      font-weight: 380;
+      border-bottom: 1px dashed #e5c8a8;
+      padding-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .subhead::before {
+      content: "✦";
+      color: #c2854a;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: #3d2b1a;
+      margin-bottom: 1.3rem;
+      font-size: 1.02rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #4f361e;
+      background: #fdf3e8;
+      padding: 0.8rem 1.4rem;
+      border-radius: 60px;
+      margin-bottom: 1.8rem;
+      display: inline-block;
+      font-weight: 420;
+    }
+
+    .quote-block {
+      background: #f7ede1;
+      padding: 1.2rem 1.8rem;
+      border-radius: 30px;
+      margin: 1.8rem 0 2rem;
+      border-left: 6px solid #c9894b;
+      color: #4a311b;
+      font-style: normal;
+      font-size: 1rem;
+      box-shadow: inset 0 1px 4px rgba(255, 215, 160, 0.4);
+    }
+
+    .quote-block strong {
+      color: #8c5f34;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #dba16a;
+      color: #2f1f0e;
+      padding: 0.45rem 1.2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 520;
+      font-size: 1.05rem;
+      transition: background 0.2s, transform 0.1s;
+      border: 1px solid #e9b986;
+      margin: 0 0.1rem;
+    }
+
+    .link-button:hover {
+      background: #e7b684;
+      transform: scale(1.02);
+      border-color: #d18f4e;
+    }
+
+    a {
+      color: #b06d2f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #dba16a;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: #784a1f;
+      text-decoration-color: #784a1f;
+    }
+
+    .sentence-link {
+      background: transparent;
+      padding: 0;
+      border: none;
+      font-weight: 450;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin: 2rem 0 1.2rem;
+    }
+
+    .feature-item {
+      background: #faf1e7;
+      border-radius: 60px;
+      padding: 0.5rem 1.4rem 0.5rem 1rem;
+      font-size: 0.95rem;
+      color: #4b331d;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid #eddccb;
+    }
+
+    .feature-item::before {
+      content: "☕";
+      margin-right: 0.2rem;
+      opacity: 0.7;
+    }
+
+    .faq-note {
+      background: #fff5ea;
+      border-radius: 28px;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0 1.6rem;
+      border: 1px solid #e4cfb7;
+    }
+
+    .faq-note summary {
+      font-weight: 520;
+      color: #543a22;
+      cursor: default;
+      font-size: 1.05rem;
+      list-style: none;
+    }
+
+    .faq-note summary::marker {
+      content: "▸";
+      color: #c28649;
+      margin-right: 0.5rem;
+    }
+
+    .faq-note p {
+      margin: 0.6rem 0 0.2rem;
+      font-size: 0.96rem;
+    }
+
+    .closing-line {
+      margin-top: 2.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e6ceb6;
+      font-size: 1rem;
+      color: #5e422a;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem 1.4rem 2.4rem;
+        border-radius: 28px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        padding-left: 0.7rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .feature-grid {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .feature-item {
+        width: fit-content;
+      }
+
+      .quote-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>分分彩 · 以分钟为单位的叙事</h1>
+    <div class="subhead">关于节奏、选择与片刻的感知</div>
+
+    <p class="lead">在数字生活里，有一种时间刻度叫「分分」——它不属于小时，也不沉入秒针的焦虑，而是以每分钟为节点，勾勒出一种独特的韵律。</p>
+
+    <p>
+      <strong>分分彩</strong>所指向的，并不仅仅是一个名称。它更像是对“频繁而轻盈的节奏”的隐喻。你有没有注意过，那些每隔一分钟就更新的信息流、行情、推送……它们构成了一种现代人熟悉的背景白噪音。而在这个领域里，<a href="https://lotto-ffc.com" class="sentence-link">分分彩</a>这三个字，往往被用来描述某种高频、紧凑、却又自带放松感的观察方式——就像咖啡杯边的一次短暂停顿，或是一段短促的旋律。
+    </p>
+
+    <div class="quote-block">
+      <strong>“每分钟都是一种邀请，而不是催促。”</strong><br>
+      一位长期关注节奏变化的朋友曾这样形容。当我们把目光从“结果”移向“过程”，分分彩所代表的，或许是一种更耐心的陪伴。
+    </div>
+
+    <p>
+      很多人第一次接触“分分彩”这个词时，会联想到快速变化、密集的数据。但换个角度看，它也可以成为日常中温和的提醒：时间被切成许多个一分钟，而我们拥有在这些片段里重新整理思绪的自由。就像翻过一页书，或者等待一杯茶闷出香气——节奏本身，往往比终点更有意味。
+    </p>
+
+    <div class="feature-grid">
+      <span class="feature-item">以分钟为锚点</span>
+      <span class="feature-item">不疾不徐的注视</span>
+      <span class="feature-item">节奏即叙事</span>
+      <span class="feature-item">温和的颗粒度</span>
+    </div>
+
+    <p>
+      当然，每个与<a href="https://lotto-ffc.com" class="sentence-link">分分彩</a>相关的人，都有自己理解的切面。有的人从中获得一种规律感，有的人则更在意其内在的间隔美学。重要的是，它不催促你抵达某个地方，而是邀请你留在当下这一分钟——就像一次深呼吸，或是一段短小而完整的句子。
+    </p>
+
+    <p>
+      或许你也有类似的印象：某些事物因为“每分每秒都在发生”，反而让人感到一种稳定的陪伴。分分彩所承载的，正是这样一种既流动又循环的质地。它不承诺任何戏剧性，却始终在那里，如同远处一座亮着暖光的站台。
+    </p>
+
+    <details class="faq-note">
+      <summary>FAQ 摘要 · 关于分分彩的几个朴素理解</summary>
+      <p><strong>Q：分分彩是一个具体平台吗？</strong><br>
+      A：它更常被当作一类节奏的描述，但很多人通过 <a href="https://lotto-ffc.com" class="sentence-link">分分彩</a> 这个指代找到自己喜欢的频率和内容。</p>
+      <p><strong>Q：它的特点是什么？</strong><br>
+      A：以分钟为基本单位，强调紧凑而柔和的节奏感，不强调速度，而是强调“每分都有所感”。</p>
+    </details>
+
+    <div class="closing-line">
+      <span style="background: #ede0d1; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.95rem;">☕ 每一步都在一分钟里</span>
+      <p style="margin-top: 1rem; font-size: 0.95rem; color: #57412c;">如果你也好奇这种以分钟为刻度的叙事方式，不妨以你自己的节奏，慢慢靠近那个叫做<a href="https://lotto-ffc.com" class="sentence-link">分分彩</a>的坐标。</p>
+    </div>
+  </div>
+</body>
+</html>

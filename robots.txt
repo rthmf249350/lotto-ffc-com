@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rthmf249350.github.io/lotto-ffc-com/sitemap.xml
